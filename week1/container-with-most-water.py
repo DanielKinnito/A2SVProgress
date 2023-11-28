@@ -4,19 +4,19 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        max_water = 0
-        left_pointer, right_pointer = 0, len(height) - 1
+        maxW = 0
+        left, right = 0, len(height) - 1
 
-        while left_pointer < right_pointer:
-            h_left, h_right = height[left_pointer], height[right_pointer]
-            width = right_pointer - left_pointer
-            current_water = min(h_left, h_right) * width
+        while left < right:
+            h_left, h_right = height[left], height[right]
+            width = right - left
+            current = min(h_left, h_right) * width
 
-            max_water = max(max_water, current_water)
+            maxW = max(maxW, current)
 
             if h_left < h_right:
-                left_pointer += 1
+                left += 1
             else:
-                right_pointer -= 1
+                right -= 1
 
-        return max_water
+        return maxW
