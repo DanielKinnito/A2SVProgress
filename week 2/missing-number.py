@@ -4,11 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        n=len(nums)
-        array_sum=sum(nums)
-        total=0
-        while n>=0:
-            total+=n
-            n-=1
-        return total-array_sum
-                    
+        my_dict = {}
+    
+        # Populate the dictionary with the numbers in the array
+        for num in nums:
+            my_dict[num] = 1
+        
+        # Find the missing number
+        for i in range(len(nums) + 1):
+            if i not in my_dict:
+                return i
