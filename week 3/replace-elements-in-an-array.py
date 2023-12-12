@@ -1,5 +1,3 @@
-from typing import List
-
 class Solution:
     def arrayChange(self, nums: List[int], operations: List[List[int]]) -> List[int]:
         """
