@@ -6,6 +6,7 @@ class Solution:
         n = len(s)
         front = 0
         back = n-1
+        
         while front < n/2 :
             s[front], s[back] = s[back], s[front]
 
