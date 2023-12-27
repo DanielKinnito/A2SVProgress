@@ -1,7 +1,7 @@
 class Solution:
     def countUnguarded(self, m: int, n: int, guards: List[List[int]], walls: List[List[int]]) -> int:
         """
-        1 - setup grids for all directions, includong our main grid
+        1 - setup grids for all directions, including our main grid
                 and populate them with 0s to help checking later
         2 - according to the coords given, populate the main grid
         3 - populate the direction grids with G or W as long as we meet the same in the main grid
