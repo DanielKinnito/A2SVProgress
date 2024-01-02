@@ -3,13 +3,10 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        write = 0
-        read = 0
-        
-        while read < len(nums):
-            if nums[read] != 0:
-                nums[read], nums[write] = nums[write], nums[read]
+        placeholder = -1
+
+        for seeker in range(len(nums)):
+            if nums[seeker] != 0:
+                placeholder += 1
                 
-                write += 1
-            
-            read += 1
+                nums[seeker], nums[placeholder] = nums[placeholder], nums[seeker]
