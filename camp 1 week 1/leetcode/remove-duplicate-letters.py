@@ -1,14 +1,14 @@
 class Solution:
     def removeDuplicateLetters(self, s: str) -> str:
         seen = set()
+        occurrence_map = { char: i for i, char in enumerate(s)}
         stack = []
-        last_occurrence = {char: idx for idx, char in enumerate(s)}
-        
-        for idx, char in enumerate(s):
-            if char not in seen:
-                while stack and char < stack[-1] and idx < last_occurrence[stack[-1]]:
+
+        for i in range(len(s)):
+            if s[i] not in seen:
+                while stack and s[i] < stack[-1] and i < occurrence_map[stack[-1]]:
                     seen.remove(stack.pop())
-                seen.add(char)
-                stack.append(char)
-                    
+                stack.append(s[i])
+                seen.add(s[i])
+            
         return ''.join(stack)
