@@ -18,4 +18,9 @@ class Solution:
             return root
 
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        return self.ancestor(root, p, q)
+        if root.val > p.val and root.val > q.val:
+            return self.ancestor(root.left, p,q)
+        elif root.val < p.val and root.val < q.val:
+            return self.ancestor(root.right, p, q)
+        else:
+            return root
