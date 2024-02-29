@@ -14,7 +14,6 @@ class Solution:
         def helper(root, index):
             if not root:
                 return None
-            # print(dictionary)
             dictionary[index].append(root.val)
             helper(root.left, index + 1)
             helper(root.right, index + 1)
