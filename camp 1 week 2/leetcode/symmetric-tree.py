@@ -5,20 +5,12 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def inorder(self,left, right):
-        if (not left and right) or (not right and left):
+    def mirror(self,left, right):
+        if not left and not right:
+            return True
+        if not left or not right:
             return False
-        
-        if left and right and left.val != right.val:
-            return False
-        
-        if right and left and not self.inorder(right.right, left.left):
-            return False
-        
-        if right and left and not self.inorder(right.left, left.right):
-            return False
-        
-        return True
+        return left.val == right.val and self.mirror(left.left, right.right) and self.mirror(left.right, right.left)
         
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        return self.inorder(root, root)
+        return self.mirror(root, root)
