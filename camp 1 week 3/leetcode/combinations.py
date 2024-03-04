@@ -5,7 +5,11 @@ class Solution:
                 answer.append(path[:])
                 return 
 
-            for num in range(first, n + 1):
+            need = k - len(path)
+            remaining = n - first + 1
+            available = remaining - need
+
+            for num in range(first, first + available + 1):
                 path.append(num)
                 backtrack(num + 1, path)
                 path.pop()
