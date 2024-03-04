@@ -5,6 +5,9 @@ class Solution:
                 answer.append(path[:])
                 return 
 
+            if first > n + 1:
+                return
+
             need = k - len(path)
             remaining = n - first + 1
             available = remaining - need
