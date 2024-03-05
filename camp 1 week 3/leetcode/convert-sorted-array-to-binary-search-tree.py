@@ -11,8 +11,9 @@ class Solution:
                 return None
 
             middle = (left + right) //2
-            left = helper(left, middle - 1)
-            right = helper(middle + 1, right)
-            return TreeNode(nums[middle], left, right)
+            root = TreeNode(nums[middle])
+            root.left = helper(left, middle - 1)
+            root.right = helper(middle + 1, right)
+            return root
 
         return helper(0, len(nums) - 1)
