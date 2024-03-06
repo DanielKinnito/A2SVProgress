@@ -8,10 +8,8 @@ class Solution:
             for i in range(length):
                 if temp_sum + weights[i] > mid:
                     count += 1
-                    # i -= 1
                     temp_sum = 0
                 temp_sum += weights[i]
-                # print(temp_sum, count, i, mid)
 
             if count <= days:
                 return True
@@ -26,4 +24,5 @@ class Solution:
                 high = middle - 1
             else:
                 low = middle + 1
+        
         return low
