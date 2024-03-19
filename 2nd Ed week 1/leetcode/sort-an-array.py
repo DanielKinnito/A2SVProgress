@@ -3,8 +3,10 @@ class Solution:
         def merge(left_array, right_array):
             left, right = 0, 0
             merged = []
+
+            left_len, right_len = len(left_array), len(right_array)
             
-            while left < len(left_array) and right < len(right_array):
+            while left < left_len and right < right_len:
                 if left_array[left] < right_array[right]:
                     merged.append(left_array[left])
                     left += 1
@@ -26,5 +28,5 @@ class Solution:
             right_array = merge_sort(middle + 1, right, array)
 
             return merge(left_array, right_array)
-        
-        return merge_sort(0, len(nums) - 1, nums)
+        idx = len(nums) - 1
+        return merge_sort(0, idx, nums)
