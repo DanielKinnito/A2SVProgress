@@ -1,10 +1,19 @@
 class Solution:
     def findDuplicates(self, nums: List[int]) -> List[int]:
-        answer = []
-        count = Counter(nums)
+        length = len(nums)
 
-        for key in list(count.keys()):
-            if count[key] != 1:
-                answer.append(key)
+        index = 0
+        while index < length:
+            correct_idx = nums[index] - 1
+
+            if nums[index] != nums[correct_idx]:
+                nums[index], nums[correct_idx] = nums[correct_idx], nums[index]
+            else:
+                index += 1
         
-        return sorted(answer)
+        answer = []
+        for i in range(length):
+            if nums[i] - 1 != i:
+                answer.append(nums[i])
+        
+        return answer
