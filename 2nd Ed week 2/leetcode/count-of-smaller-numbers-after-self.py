@@ -25,5 +25,5 @@ class Solution:
             return merge(left_unsorted, left_sorted, left_count, right_unsorted, right_sorted, right_count)
         
         _, sorted_nums, answer = merge_sort(0, len(nums) - 1, nums)
-        print(sorted_nums)
+        
         return answer
