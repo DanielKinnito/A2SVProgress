@@ -3,7 +3,7 @@ class Solution:
         if n == 0 or n == 1:
             return 0
         
-        primes = [True] * (n+1)
+        primes = [True] * (n + 1)
         primes[0], primes[1] = False, False
         
         for i in range(2, int(n**0.5)+1):
