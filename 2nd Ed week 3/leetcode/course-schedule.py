@@ -1,12 +1,9 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        courses = {}
+        courses = defaultdict(list)
 
         for pre in prerequisites:
-            if pre[1] in courses:
-                courses[pre[1]].append(pre[0])
-            else:
-                courses[pre[1]] = [pre[0]]
+            courses[pre[1]].append(pre[0])
         
         WHITE = 1
         GRAY = 2
