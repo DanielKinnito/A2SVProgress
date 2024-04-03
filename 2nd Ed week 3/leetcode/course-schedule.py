@@ -5,10 +5,8 @@ class Solution:
         for pre in prerequisites:
             courses[pre[1]].append(pre[0])
         
-        WHITE = 1
-        GRAY = 2
-        BLACK = 3
-        all_nodes = {i: WHITE for i in range(numCourses)}
+        unchecked, visited, dead = 1, 2, 3
+        all_nodes = {i: unchecked for i in range(numCourses)}
         
         no_cycle = True
         def dfs(node):
@@ -16,16 +14,17 @@ class Solution:
             if not no_cycle:
                 return
             
-            all_nodes[node] = GRAY
+            all_nodes[node] = visited
 
             if node in courses:
                 for neighbor in courses[node]:
-                    if all_nodes[neighbor] == WHITE:
+                    if all_nodes[neighbor] == unchecked:
                         dfs(neighbor)
-                    elif all_nodes[neighbor] == GRAY:
+                    elif all_nodes[neighbor] == visited:
                         no_cycle = False
             
-            all_nodes[node] = BLACK
+            all_nodes[node] = dead
+            
             
         for key in courses:
             dfs(key)
