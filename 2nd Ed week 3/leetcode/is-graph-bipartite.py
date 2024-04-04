@@ -1,5 +1,10 @@
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
+        """
+        -1 :unvisited
+        0: red
+        1: blue
+        """
         length = len(graph)
         all_nodes = [-1] * length
 
