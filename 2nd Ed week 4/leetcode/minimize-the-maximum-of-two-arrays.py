@@ -7,11 +7,14 @@ class Solution:
         def is_possible(mid):
             count_1 = mid - mid // divisor1
             count_2 = mid - mid // divisor2
+            
             total_count = mid - mid // divi_lcm
+            
             return count_1 >= uniqueCnt1 and count_2 >= uniqueCnt2 and total_count >= uniqueCnt1 + uniqueCnt2
 
         while left < right:
             middle = (left + right) // 2
+            
             if is_possible(middle):
                 right = middle
             else:
