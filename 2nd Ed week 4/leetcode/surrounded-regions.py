@@ -16,15 +16,18 @@ class Solution:
         visited = set()
         def dfs(row, col):
             visited.add((row, col))
-            board[row][col] = 'S'
+            stack = [(row, col)]
 
+            while stack:
+                row, col = stack.pop()
+                board[row][col] = 'S'
 
-            for dx, dy in directions:
-                new_row, new_col = row + dx, col + dy
+                for dx, dy in directions:
+                    new_row, new_col = row + dx, col + dy
 
-                if inbound(new_row, new_col) and (new_row, new_col) not in visited:
-                    if board[new_row][new_col] == 'O':
-                        dfs(new_row, new_col)
+                    if inbound(new_row, new_col) and (new_row, new_col) not in visited:
+                        if board[new_row][new_col] == 'O':
+                            stack.append((new_row, new_col))
         
         for i in range(width):
             if board[0][i] == 'O':
