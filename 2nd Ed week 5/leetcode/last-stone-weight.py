@@ -5,17 +5,13 @@ class Solution:
             stones[i] = -stones[i]
             heappush(heap, stones[i])
         
-        length = len(heap)
-        while length > 1:
+        while len(heap) > 1:
             y = - heappop(heap)
             x = - heappop(heap)
             
             if x != y:
                 y -= x
-                length -= 1
                 heappush(heap, -y)
-            elif x == y:
-                length -= 2
         
         if heap: return -heap[0]
         return 0
