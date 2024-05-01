@@ -1,9 +1,9 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        x, answer = 0, 0
+        answer, x = 0, 0
         
         for num in nums:
-            x = (num ^ x) & ~answer
             answer = (num ^ answer) & ~x
+            x = (num ^ x) & ~answer
         
-        return x
+        return answer
