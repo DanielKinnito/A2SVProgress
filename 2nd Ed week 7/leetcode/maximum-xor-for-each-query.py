@@ -3,14 +3,14 @@ class Solution:
         max_val = (1 << maximumBit) - 1
         n = len(nums)
         xor_all = 0
-        result = []
+        answer = []
         
         for num in nums:
             xor_all ^= num
         
         for i in range(n):
             max_xor_value = xor_all ^ max_val
-            result.append(max_xor_value)
+            answer.append(max_xor_value)
             xor_all ^= nums[n - 1 - i]
         
-        return result
+        return answer
