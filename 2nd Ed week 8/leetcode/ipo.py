@@ -1,9 +1,6 @@
 class Solution:
     def findMaximizedCapital(self, k: int, w: int, profits: List[int], capital: List[int]) -> int:
-        temp = []
-        for i in range(len(profits)):
-            temp.append((capital[i], profits[i]))
-        
+        temp = list(zip(capital,profits))        
         temp.sort()
         ptr = 0
         heap = []
