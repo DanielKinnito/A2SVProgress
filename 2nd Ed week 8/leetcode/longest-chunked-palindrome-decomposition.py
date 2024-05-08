@@ -16,9 +16,7 @@ class Solution:
 
             first += 1
             last -= 1
-        
-        print(left)
-        print(right)
+ 
         if first == last or (len(left) != 0 and len(right) != 0):
             return count + 1
         elif left != right:
