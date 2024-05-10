@@ -1,12 +1,15 @@
 class Solution:
     def maxProfit(self, prices):
-        l,r = 0,1
-        maxP = 0
-        while r<len(prices):
-            if prices[l] < prices[r]:
-                profit = prices[r] - prices[l]
-                maxP = max(maxP,profit)
-            else:
-                l = r
-            r += 1
-        return maxP
+        def dp(idx, fl):
+            if idx >= len(prices) - 1:
+                if fl: return 0
+                return prices[idx]
+            
+            if (idx, fl) not in memo:
+                if fl: memo[((idx, fl))] = max(dp(idx + 1, fl), dp(idx + 1, not fl) - prices[idx])
+                else: memo[(idx, fl)] = max(dp(idx + 1, fl), prices[idx])
+            
+            return memo[(idx, fl)]
+        
+        memo = {}
+        return dp(0, True)
