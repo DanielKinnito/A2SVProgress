@@ -32,7 +32,6 @@ class Solution:
         words.sort()
         for word in words:
             trie.insert(word)
-        
         answer = ''
         for word in words:
             if trie.search(word):
