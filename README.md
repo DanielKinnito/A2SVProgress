@@ -2,6 +2,8 @@
 
 Welcome to the DSA (Data Structures and Algorithms) Questions and Answers repository! This collection includes solutions to various DSA problems from platforms like LeetCode and Codeforces. The questions are organized based on the weeks during which they were covered in DSA lectures and practice sessions.
 
+These are questions I learned DSA with during my time at [A2SV]([a2sv.com](https://a2sv.org/)). You'll notice that solutions under a certain week are themed around one type of data structure or one type of algorithm. So if you feel the need to refine your skills in a certain area, the similar questions in that folder will be of great use.
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -32,8 +34,8 @@ dsa-questions-answers/
 ## How to Use
 
 1. **Navigating the Repository:**
-   - Each week is a folder containing subfolders for LeetCode and Codeforces.(Some onlly LeetCode)
-   - Inside each problem folder, you will find a solution file (`.py`, `.cpp`, etc.) with the code.
+   - Each week is a folder containing subfolders for LeetCode and Codeforces.(Some only LeetCode)
+   - Inside each problem folder, you will find a solution file (`.py`) with the code.
 
 2. **Viewing Solutions:**
    - Search the name of the question from the respective website the question is from.
