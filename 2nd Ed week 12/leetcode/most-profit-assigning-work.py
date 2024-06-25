@@ -2,7 +2,7 @@ class Solution:
     def maxProfitAssignment(self, difficulty: List[int], profit: List[int], worker: List[int]) -> int:
         answer = 0
         jobs = sorted(zip(difficulty, profit))
-        worker.sort(reverse=1)
+        worker.sort(reverse = True)
 
         i = 0
         maxProfit = 0
