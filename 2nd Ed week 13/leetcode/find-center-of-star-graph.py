@@ -9,4 +9,3 @@ class Solution:
         for key in adj_list:
             if len(adj_list[key]) > 1:
                 return key
-        
