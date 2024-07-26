@@ -2,8 +2,8 @@ func luckyNumbers (matrix [][]int) []int {
     n := len(matrix)
     m := len(matrix[0])
 
-    minimums := make([]int, n)
-    maximums := make([]int, m)
+    var minimums []int
+    var maximums []int
 
     for i:=0; i < n; i++ {
         cur_min := matrix[i][0]
@@ -12,7 +12,7 @@ func luckyNumbers (matrix [][]int) []int {
                 cur_min = matrix[i][j]
             }
         }
-        minimums[i] = cur_min
+        minimums = append(minimums, cur_min)
     }
     
     for j := 0; j < m; j++{
@@ -22,9 +22,9 @@ func luckyNumbers (matrix [][]int) []int {
                 cur_max = matrix[i][j]
             }
         }
-        maximums[j] = cur_max
+        maximums = append(maximums, cur_max)
     }
-    
+
     var answer []int
     
     for i := 0; i < n; i++{
