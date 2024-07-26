@@ -1,0 +1,19 @@
+import 'dart:collection';
+
+class Solution {
+  List<int> twoSum(List<int> nums, int target) {
+    Map<int, int> nums_dict = HashMap();
+    
+    for(int i = 0; i < nums.length; i ++){
+        int num_one = nums[i];
+        int num_two = target - num_one;
+
+        if(nums_dict.containsKey(num_two)){
+            return [nums_dict[num_two]!, i];
+        }
+    
+        nums_dict[num_one] = i;
+    }
+    return [];
+  }
+}
