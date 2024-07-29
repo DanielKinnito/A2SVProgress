@@ -1,0 +1,23 @@
+class Solution {
+  List<int> sortJumbled(List<int> mapping, List<int> nums) {
+  int getMappedValue(int num) {
+    String original = num.toString();
+    String mapped = original.split('').map((char) => mapping[int.parse(char)].toString()).join('');
+    return int.parse(mapped);
+  }
+
+  List<MapEntry<int, int>> mappedPairs = nums.map((num) => MapEntry(num, getMappedValue(num))).toList();
+
+  mappedPairs.sort((a, b) {
+    int compare = a.value.compareTo(b.value);
+    if (compare == 0) {
+      return nums.indexOf(a.key).compareTo(nums.indexOf(b.key));
+    }
+    return compare;
+  });
+
+  List<int> sortedNums = mappedPairs.map((pair) => pair.key).toList();
+
+  return sortedNums;
+}
+}
