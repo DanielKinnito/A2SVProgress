@@ -5,8 +5,9 @@ class Solution:
         for u, v, w in times:
             graph[u].append((v, w))
         
-        distances = {node: inf for node in range(1, n+1)}
+        distances = [inf] * (n + 1)
         distances[k] = 0
+        distances[0] = 0
 
         processed = set()
 
@@ -23,6 +24,6 @@ class Solution:
                     distances[node] = dist
                     heappush(heap, (distances[node], node))
         
-        min_time = max(distances.values())
+        min_time = max(distances)
 
         return min_time if min_time != inf else -1
