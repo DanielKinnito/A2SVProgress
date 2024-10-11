@@ -1,6 +1,6 @@
 class Solution:
     def findTheCity(self, n: int, edges: List[List[int]], distanceThreshold: int) -> int:
-        matrix = [[inf] * n for _ in range(n)]
+        matrix = [[20000] * n for _ in range(n)]
         
         for u, v, w in edges:
             if w <= distanceThreshold:
@@ -21,8 +21,9 @@ class Solution:
         for i in range(n):
             count = 0
             for j in range(n):
-                if matrix[i][j] != 0 and matrix[i][j] != inf:
+                if matrix[i][j] != 0 and matrix[i][j] != 20000:
                     count += 1
+            
             if count <= comp:
                 answer = i
                 comp = count
