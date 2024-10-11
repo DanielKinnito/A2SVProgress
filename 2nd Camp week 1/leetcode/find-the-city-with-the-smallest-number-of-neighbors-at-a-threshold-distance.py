@@ -16,19 +16,15 @@ class Solution:
                     if matrix[u][bn] + matrix[bn][v] <= distanceThreshold:
                         matrix[u][v] = min(matrix[u][v], matrix[u][bn] + matrix[bn][v])
         
-        neighbors = [inf] * n
+        answer, comp = 0, 200
 
         for i in range(n):
             count = 0
             for j in range(n):
                 if matrix[i][j] != 0 and matrix[i][j] != inf:
                     count += 1
-            neighbors[i] = count
-        
-        answer, count = 0, neighbors[0]
-        for i in range(1, n):
-            if neighbors[i] <= count:
+            if count <= comp:
                 answer = i
-                count = neighbors[i]
-                
-        return answer
+                comp = count
+
+        return answer        
